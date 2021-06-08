@@ -15,6 +15,16 @@ namespace ArdalisRating.Tests
       }
    }
 
+   public class FakeRatingUpdater : IRatingUpdater
+   {
+      public decimal? NewRating { get; private set; }
+
+      public void UpdateRating(decimal rating)
+      {
+         NewRating = rating;
+      }
+   }
+
    public class AutoPolicyRaterRate
    {
       [Fact]
@@ -28,6 +38,23 @@ namespace ArdalisRating.Tests
          rater.Rate(policy);
 
          Assert.Equal("Auto policy must specify Make", logger.LoggedMessages.Last());
+      }
+
+      [Fact]
+      public void SetsRatingTo1000ForBMWWith250Deductible()
+      {
+         var policy = new Policy()
+         {
+            Type = "Auto",
+            Make = "BMW",
+            Deductible = 250m
+         };
+         var ratingUpdater = new FakeRatingUpdater();
+         var rater = new AutoPolicyRater(ratingUpdater);
+
+         rater.Rate(policy);
+
+         Assert.Equal(1000m, ratingUpdater.NewRating.Value);
       }
    }
 }
