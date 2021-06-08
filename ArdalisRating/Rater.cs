@@ -1,23 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace ArdalisRating
+﻿namespace ArdalisRating
 {
-   public class Rater
-   {
-      protected readonly RatingEngine _engine;
-      protected ConsoleLogger _logger;
+    public abstract class Rater
+    {
+        protected readonly IRatingContext _context;
+        protected readonly ConsoleLogger _logger;
 
-      public Rater(RatingEngine engine, ConsoleLogger logger)
-      {
-         _engine = engine;
-         _logger = logger;
-      }
+        public Rater(IRatingContext context)
+        {
+            _context = context;
+            _logger = _context.Logger;
+        }
 
-      public virtual void Rate(Policy policy)
-      {
-         _logger.Log("Unknown Policy");
-      }
-   }
+        public abstract void Rate(Policy policy);
+    }
 }
