@@ -4,7 +4,7 @@
    {
       void UpdateRating(decimal rating);
    }
-    public interface IRatingContext : ILogger, IRatingUpdater
+    public interface IRatingContext : ILogger
     {
         string LoadPolicyFromFile();
         string LoadPolicyFromURI(string uri);
@@ -12,6 +12,5 @@
         Policy GetPolicyFromXmlString(string policyXml);
         Rater CreateRaterForPolicy(Policy policy, IRatingContext context);
         RatingEngine Engine { get; set; }
-        ConsoleLogger Logger { get; }
     }
 }
