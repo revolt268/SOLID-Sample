@@ -6,8 +6,8 @@ namespace ArdalisRating
 {
    public class Rater
    {
-      private readonly RatingEngine _engine;
-      private ConsoleLogger _logger;
+      protected readonly RatingEngine _engine;
+      protected ConsoleLogger _logger;
 
       public Rater(RatingEngine engine, ConsoleLogger logger)
       {
@@ -17,7 +17,7 @@ namespace ArdalisRating
 
       public virtual void Rate(Policy policy)
       {
-         _logger.Log("Default Policy");
+         _logger.Log("Unknown Policy");
       }
    }
 }

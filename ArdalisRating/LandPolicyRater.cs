@@ -6,9 +6,6 @@ namespace ArdalisRating
 {
    public class LandPolicyRater : Rater
    {
-      private readonly RatingEngine _engine;
-      private ConsoleLogger _logger;
-
       public LandPolicyRater(RatingEngine engine, ConsoleLogger logger) : base(engine, logger) { }
 
       public override void Rate(Policy policy)

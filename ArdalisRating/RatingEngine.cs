@@ -24,10 +24,10 @@ namespace ArdalisRating
          string policyJson = PolicySource.GetPolicyFromSource();
 
          var policy = PolicySerial.GetPolicyFromJsonString(policyJson);
-         switch (policy.Type)
-         {
-            
-         }
+
+         var factory = new RaterFactory();
+         var rater = factory.Create(policy, this);
+         rater.Rate(policy);
 
          Logger.Log("Rating completed.");
       }
