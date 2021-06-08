@@ -29,7 +29,7 @@ namespace ArdalisRating
       #endregion
 
       #region Flood
-      public decimal ElevationAboveSeaLevelFeet { get; set }
+      public decimal ElevationAboveSeaLevelFeet { get; set; }
       #endregion
    }
 }
