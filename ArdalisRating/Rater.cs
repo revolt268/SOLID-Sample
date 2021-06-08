@@ -7,7 +7,7 @@
 
         public Rater(IRatingUpdater ratingUpdater)
         {
-         _ratingUpdater = ratingUpdater;
+            _ratingUpdater = ratingUpdater;
         }
 
         public abstract void Rate(Policy policy);

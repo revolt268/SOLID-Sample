@@ -35,10 +35,5 @@ namespace ArdalisRating
         {
             new ConsoleLogger().Log(message);
         }
-
-        public void UpdateRating(decimal rating)
-        {
-            Engine.Rating = rating;
-        }
     }
 }
